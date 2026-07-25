@@ -49,6 +49,13 @@ Find biggest based on ________
 
  --------------------------------------------------------------------------------------------
  8. most used languages -  going to use count for this 
+ okay , used max(dict , key = dict.get) for most used languges (understood haha) 
+
+ --------------------------------------------------------------------------------------------
+9 . starting with RICH lib  -  so that terminal looks handsome >< .  
++1 .  learning about pannels in rich 
+
+
 
 
 

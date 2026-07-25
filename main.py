@@ -6,14 +6,14 @@ from analyzer import (
     count_languages,
     get_most_used_language,
 )
-from ui import display_profile, display_repositories
-
+from ui import (
+    display_header,
+    display_profile,
+    display_repositories,
+)
 
 def main():
-    print("=" * 40)
-    print("              REFLOG")
-    print("      GitHub Profile Analyzer")
-    print("=" * 40)
+    display_header()
 
     username = input("\nEnter a GitHub username: ")
 
