@@ -54,6 +54,13 @@ Find biggest based on ________
  --------------------------------------------------------------------------------------------
 9 . starting with RICH lib  -  so that terminal looks handsome >< .  
 +1 .  learning about pannels in rich 
++2 learned about rich imports um (rich.table import table ) etc its properties and sucefully implented it in ui.py
+ --------------------------------------------------------------------------------------------
+
+10. learning how to sort dict numers for sequential look and what lamda is
+
+ --------------------------------------------------------------------------------------------
+11.. moving towards extracting csv / pdf . um ihave no clue what it is right now :p
 
 
 

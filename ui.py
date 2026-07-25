@@ -14,8 +14,18 @@ def display_header():
     console.print(panel)
 
 
-def display_profile(profile, total_stars, total_forks, most_starred, most_used_language):
-
+def display_profile(
+    profile,
+    total_stars,
+    total_forks,
+    most_starred,
+    most_used_language,
+    average_stars,
+    average_forks,
+    newest_repository,
+    oldest_repository
+):
+    
     table = Table(
         title="GitHub Profile",
         show_header=True,
@@ -46,16 +56,60 @@ def display_profile(profile, total_stars, total_forks, most_starred, most_used_l
             f"{language} ({count})"
         )
 
+        table.add_row(
+        "Average Stars",
+        str(average_stars)
+    )
+
+    table.add_row(
+        "Average Forks",
+        str(average_forks)
+    )
+
+    if newest_repository:
+        table.add_row(
+            "Newest Repository",
+            newest_repository["name"]
+        )
+
+    if oldest_repository:
+        table.add_row(
+            "Oldest Repository",
+            oldest_repository["name"]
+        )
+
     console.print(table)
 
 
 def display_repositories(repositories):
-    print("\nRepositories")
-    print("-" * 20)
+
+    table = Table(
+        title="Repositories",
+        show_header=True,
+        header_style="bold magenta"
+    )
+
+    table.add_column("Repository", style="cyan")
+    table.add_column("Stars", justify="right")
+    table.add_column("Forks", justify="right")
+    table.add_column("Language")
 
     if not repositories:
-        print("No repositories found.")
+        console.print("[red]No repositories found.[/red]")
         return
 
     for repo in repositories:
-        print(f"- {repo['name']}")
+
+        language = repo["language"]
+
+        if language is None:
+            language = "-"
+
+        table.add_row(
+            repo["name"],
+            str(repo["stargazers_count"]),
+            str(repo["forks_count"]),
+            language
+        )
+
+    console.print(table)

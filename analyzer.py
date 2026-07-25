@@ -1,3 +1,4 @@
+from datetime import datetime
 def calculate_total_stars(repositories):
     """
     Calculate the total number of stars across all repositories.
@@ -92,3 +93,93 @@ def get_most_used_language(language_count):
     language = max(language_count, key=language_count.get)
 
     return language, language_count[language]
+
+
+def sort_repositories_by_stars(repositories):
+    """
+    Return repositories sorted by stars (highest first).
+    """
+
+    return sorted(
+        repositories,
+        key=lambda repo: repo["stargazers_count"],
+        reverse=True
+    )
+
+def calculate_average_stars(repositories):
+    """
+    Calculate the average stars per repository.
+    """
+
+    if not repositories:
+        return 0
+
+    total_stars = calculate_total_stars(repositories)
+
+    return round(total_stars / len(repositories), 2)
+
+def calculate_average_forks(repositories):
+    """
+    Calculate the average forks per repository.
+    """
+
+    if not repositories:
+        return 0
+
+    total_forks = calculate_total_forks(repositories)
+
+    return round(total_forks / len(repositories), 2)
+
+def get_newest_repository(repositories):
+    """
+    Return the newest repository.
+    """
+
+    if not repositories:
+        return None
+
+    newest = repositories[0]
+
+    for repo in repositories:
+
+        current_date = datetime.strptime(
+            repo["created_at"],
+            "%Y-%m-%dT%H:%M:%SZ"
+        )
+
+        newest_date = datetime.strptime(
+            newest["created_at"],
+            "%Y-%m-%dT%H:%M:%SZ"
+        )
+
+        if current_date > newest_date:
+            newest = repo
+
+    return newest
+
+def get_oldest_repository(repositories):
+    """
+    Return the oldest repository.
+    """
+
+    if not repositories:
+        return None
+
+    oldest = repositories[0]
+
+    for repo in repositories:
+
+        current_date = datetime.strptime(
+            repo["created_at"],
+            "%Y-%m-%dT%H:%M:%SZ"
+        )
+
+        oldest_date = datetime.strptime(
+            oldest["created_at"],
+            "%Y-%m-%dT%H:%M:%SZ"
+        )
+
+        if current_date < oldest_date:
+            oldest = repo
+
+    return oldest

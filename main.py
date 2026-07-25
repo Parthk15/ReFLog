@@ -2,9 +2,14 @@ from github_api import get_user_profile, get_user_repositories
 from analyzer import (
     calculate_total_stars,
     calculate_total_forks,
+    calculate_average_stars,
+    calculate_average_forks,
     get_repository_with_highest_value,
     count_languages,
     get_most_used_language,
+    sort_repositories_by_stars,
+    get_newest_repository,
+    get_oldest_repository,
 )
 from ui import (
     display_header,
@@ -24,8 +29,19 @@ def main():
         return
 
     repos = get_user_repositories(username)
-    
+
+    sorted_repositories = sort_repositories_by_stars(repos)
+
+    average_stars = calculate_average_stars(repos)
+
+    average_forks = calculate_average_forks(repos)
+
+    newest_repository = get_newest_repository(repos)
+
+    oldest_repository = get_oldest_repository(repos)
+        
     language_count = count_languages(repos)
+
     print(language_count)
 
     language_count = count_languages(repos)
@@ -40,14 +56,18 @@ def main():
     )
 
     display_profile(
-        profile,
-        total_stars,
-        total_forks,
-        most_starred,
-        most_used_language
-    )
+    profile,
+    total_stars,
+    total_forks,
+    most_starred,
+    most_used_language,
+    average_stars,
+    average_forks,
+    newest_repository,
+    oldest_repository,
+)
 
-    display_repositories(repos)
+    display_repositories(sorted_repositories)
 
 
 if __name__ == "__main__":
