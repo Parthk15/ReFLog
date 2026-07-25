@@ -3,6 +3,7 @@ from analyzer import (
     calculate_total_stars,
     get_most_starred_repository,
 )
+from ui import display_profile, display_repositories
 
 
 def main():
@@ -21,31 +22,11 @@ def main():
 
     repos = get_user_repositories(username)
 
-    print("\n✅ Profile Found!\n")
-
-    print(f"Name         : {profile['name']}")
-    print(f"Username     : {profile['login']}")
-    print(f"Followers    : {profile['followers']}")
-    print(f"Following    : {profile['following']}")
-    print(f"Public Repos : {profile['public_repos']}")
-
     total_stars = calculate_total_stars(repos)
-    print(f"Total Stars  : {total_stars}")
-
     most_starred = get_most_starred_repository(repos)
 
-    if most_starred:
-        print(f"Top Repository : {most_starred['name']}")
-        print(f"Top Repo Stars : {most_starred['stargazers_count']}")
-
-    print("\nRepositories")
-    print("-" * 20)
-
-    if repos:
-        for repo in repos:
-            print(f"- {repo['name']}")
-    else:
-        print("No repositories found.")
+    display_profile(profile, total_stars, most_starred)
+    display_repositories(repos)
 
 
 if __name__ == "__main__":

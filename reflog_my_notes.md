@@ -27,6 +27,17 @@ updating requirement.txt with useed packages{rich - for further better terminal 
 +1 starting to learn how to analyze stars of the repos as git dosent provide em . 
 +2 most stared repo - for loop
 
+ --------------------------------------------------------------------------------------------
+ 
+so now main.py is getting very crowded. so we are going to divide codes efficiently 
+ 
+"Refactor before adding more features." lol
+
++1 now my main.py is just importing and anlayzing github and ui.py will display our ReFLog haha 
+
+
+
+
 
 
 
