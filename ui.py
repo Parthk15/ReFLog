@@ -1,4 +1,4 @@
-def display_profile(profile, total_stars, most_starred):
+def display_profile(profile, total_stars, total_forks, most_starred, most_used_language):
     print("\n✅ Profile Found!\n")
 
     print(f"Name         : {profile['name']}")
@@ -7,10 +7,16 @@ def display_profile(profile, total_stars, most_starred):
     print(f"Following    : {profile['following']}")
     print(f"Public Repos : {profile['public_repos']}")
     print(f"Total Stars  : {total_stars}")
+    print(f"Total Forks  : {total_forks}")
 
     if most_starred:
         print(f"Top Repository : {most_starred['name']}")
         print(f"Top Repo Stars : {most_starred['stargazers_count']}")
+
+    if most_used_language:
+        language, count = most_used_language
+        print(f"Most Used Language : {language}")
+        print(f"Repositories Using : {count}")
 
 
 def display_repositories(repositories):

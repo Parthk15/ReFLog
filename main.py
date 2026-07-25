@@ -1,7 +1,10 @@
 from github_api import get_user_profile, get_user_repositories
 from analyzer import (
     calculate_total_stars,
-    get_most_starred_repository,
+    calculate_total_forks,
+    get_repository_with_highest_value,
+    count_languages,
+    get_most_used_language,
 )
 from ui import display_profile, display_repositories
 
@@ -21,11 +24,29 @@ def main():
         return
 
     repos = get_user_repositories(username)
+    
+    language_count = count_languages(repos)
+    print(language_count)
+
+    language_count = count_languages(repos)
+    most_used_language = get_most_used_language(language_count)
 
     total_stars = calculate_total_stars(repos)
-    most_starred = get_most_starred_repository(repos)
+    total_forks = calculate_total_forks(repos)
 
-    display_profile(profile, total_stars, most_starred)
+    most_starred = get_repository_with_highest_value(
+        repos,
+        "stargazers_count"
+    )
+
+    display_profile(
+        profile,
+        total_stars,
+        total_forks,
+        most_starred,
+        most_used_language
+    )
+
     display_repositories(repos)
 
 

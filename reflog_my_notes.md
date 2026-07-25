@@ -29,11 +29,31 @@ updating requirement.txt with useed packages{rich - for further better terminal 
 
  --------------------------------------------------------------------------------------------
  
-so now main.py is getting very crowded. so we are going to divide codes efficiently 
+6. so now main.py is getting very crowded. so we are going to divide codes efficiently 
  
 "Refactor before adding more features." lol
 
 +1 now my main.py is just importing and anlayzing github and ui.py will display our ReFLog haha 
+ --------------------------------------------------------------------------------------------
+
+7. doing same as stars to find no. of forks
++1 oh lol no , 
+what we did what stars we will do it with forks and then for least and most which will  be repetative , 
+we are going to make a maximum fucntion
+ Repositories
+      │
+      ▼
+Find biggest based on ________
+ honestly ive not understood it completely , lets see. 
+ okayy understood 
+
+ --------------------------------------------------------------------------------------------
+ 8. most used languages -  going to use count for this 
+
+
+
+
+
 
 
 
