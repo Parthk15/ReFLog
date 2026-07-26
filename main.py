@@ -12,7 +12,7 @@ from analyzer import (
     get_newest_repository,
     get_oldest_repository,
     find_repository,
-    get_repository_details,
+    
 )
 from ui import (
     display_header,
@@ -34,10 +34,6 @@ def main():
 
     repos = get_user_repositories(username)
 
-    from analyzer import get_repository_details
-
-    print(get_repository_details(repos[0]))
-
     sorted_repositories = sort_repositories_by_stars(repos)
 
     average_stars = calculate_average_stars(repos)
@@ -50,7 +46,7 @@ def main():
         
     language_count = count_languages(repos)
 
-    print(language_count)
+    
 
     language_count = count_languages(repos)
     most_used_language = get_most_used_language(language_count)
