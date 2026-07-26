@@ -36,11 +36,13 @@ def analyze_user():
 
     username = input("\nEnter a GitHub username: ")
 
+    print("\n🔍 Analyzing GitHub profile...")
+
     profile = get_user_profile(username)
 
     if profile is None:
         print("\n❌ User not found.")
-        return
+        return []
 
     repos = get_user_repositories(username)
 
@@ -86,6 +88,11 @@ def main():
     display_header()
 
     sorted_repositories = analyze_user()
+
+    sorted_repositories = analyze_user()
+
+    if not sorted_repositories:
+        return
 
 
 
