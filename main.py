@@ -21,6 +21,16 @@ from ui import (
     display_repository_details,
 )
 
+def display_menu():
+
+    print("\n1. View Profile Dashboard")
+    print("2. View Repository Details")
+    print("3. Exit")
+
+    choice = input("\nChoose an option: ")
+
+    return choice
+
 def main():
     display_header()
 
@@ -71,19 +81,38 @@ def main():
     oldest_repository,
 )
 
-    display_repositories(sorted_repositories)
-    repo_name = input("\nEnter repository name to view details: ")
+    while True:
 
-    repo = find_repository(
-        sorted_repositories,
-        repo_name
-    )
+        choice = display_menu()
 
-    if repo:
-        details = get_repository_details(repo)
-        display_repository_details(details)
-    else:
-        print("Repository not found")
+        if choice == "1":
+
+            display_repositories(sorted_repositories)
+
+        elif choice == "2":
+
+            repo_name = input("\nEnter repository name to view details: ")
+
+            repo = find_repository(
+                sorted_repositories,
+                repo_name
+            )
+
+            if repo:
+                details = get_repository_details(repo)
+                display_repository_details(details)
+
+            else:
+                print("Repository not found")
+
+        elif choice == "3":
+
+            print("\nExiting Reflog...")
+            break
+
+        else:
+
+            print("\nInvalid option.")
 
 
 if __name__ == "__main__":
