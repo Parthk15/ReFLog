@@ -113,3 +113,49 @@ def display_repositories(repositories):
         )
 
     console.print(table)
+
+
+def display_repository_details(details):
+
+    table = Table(
+        title="Repository Details",
+        show_header=False,
+        header_style="bold cyan"
+    )
+
+    table.add_column("Property")
+    table.add_column("Value")
+
+    table.add_row(
+        "Name",
+        details["name"]
+    )
+
+    table.add_row(
+        "Language",
+        str(details["language"])
+    )
+
+    table.add_row(
+        "Stars",
+        str(details["stars"])
+    )
+
+    table.add_row(
+        "Forks",
+        str(details["forks"])
+    )
+
+    table.add_row(
+        "Created",
+        details["created_at"]
+    )
+
+    table.add_row(
+        "Updated",
+        details["updated_at"]
+    )
+
+    console.print(table)
+
+        

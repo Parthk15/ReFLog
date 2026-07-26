@@ -4,17 +4,21 @@ from analyzer import (
     calculate_total_forks,
     calculate_average_stars,
     calculate_average_forks,
+    get_repository_details,
     get_repository_with_highest_value,
     count_languages,
     get_most_used_language,
     sort_repositories_by_stars,
     get_newest_repository,
     get_oldest_repository,
+    find_repository,
+    get_repository_details,
 )
 from ui import (
     display_header,
     display_profile,
     display_repositories,
+    display_repository_details,
 )
 
 def main():
@@ -29,6 +33,10 @@ def main():
         return
 
     repos = get_user_repositories(username)
+
+    from analyzer import get_repository_details
+
+    print(get_repository_details(repos[0]))
 
     sorted_repositories = sort_repositories_by_stars(repos)
 
@@ -68,6 +76,18 @@ def main():
 )
 
     display_repositories(sorted_repositories)
+    repo_name = input("\nEnter repository name to view details: ")
+
+    repo = find_repository(
+        sorted_repositories,
+        repo_name
+    )
+
+    if repo:
+        details = get_repository_details(repo)
+        display_repository_details(details)
+    else:
+        print("Repository not found")
 
 
 if __name__ == "__main__":

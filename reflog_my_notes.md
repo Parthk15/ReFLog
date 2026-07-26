@@ -60,8 +60,9 @@ Find biggest based on ________
 10. learning how to sort dict numers for sequential look and what lamda is
 
  --------------------------------------------------------------------------------------------
-11.. moving towards extracting csv / pdf . um ihave no clue what it is right now :p
+ 12. okay i almost ruined this project by trying to make ui better using rich but git commit saved me rn what i am going to do is add more feature as in created upadted at etc and not touching ui at this point
 
+ 
 
 
 

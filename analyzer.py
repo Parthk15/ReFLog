@@ -183,3 +183,29 @@ def get_oldest_repository(repositories):
             oldest = repo
 
     return oldest
+
+def get_repository_details(repository):
+    """
+    Extract important details from a repository.
+    """
+
+    return {
+        "name": repository["name"],
+        "language": repository["language"],
+        "stars": repository["stargazers_count"],
+        "forks": repository["forks_count"],
+        "created_at": repository["created_at"],
+        "updated_at": repository["updated_at"]
+    }
+
+def find_repository(repositories, repository_name):
+    """
+    Find a repository by its name.
+    """
+
+    for repo in repositories:
+
+        if repo["name"].lower() == repository_name.lower():
+            return repo
+
+    return None
