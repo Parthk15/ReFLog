@@ -23,16 +23,16 @@ from ui import (
 
 def display_menu():
 
-    print("\n1. View Profile Dashboard")
+    print("\n1. View Repository List")
     print("2. View Repository Details")
-    print("3. Exit")
+    print("3. Analyze Another User")
+    print("4. Exit")
 
     choice = input("\nChoose an option: ")
 
     return choice
 
-def main():
-    display_header()
+def analyze_user():
 
     username = input("\nEnter a GitHub username: ")
 
@@ -53,15 +53,14 @@ def main():
     newest_repository = get_newest_repository(repos)
 
     oldest_repository = get_oldest_repository(repos)
-        
-    language_count = count_languages(repos)
-
-    
 
     language_count = count_languages(repos)
+
+
     most_used_language = get_most_used_language(language_count)
 
     total_stars = calculate_total_stars(repos)
+
     total_forks = calculate_total_forks(repos)
 
     most_starred = get_repository_with_highest_value(
@@ -80,6 +79,15 @@ def main():
     newest_repository,
     oldest_repository,
 )
+
+    return sorted_repositories
+
+def main():
+    display_header()
+
+    sorted_repositories = analyze_user()
+
+
 
     while True:
 
@@ -105,10 +113,17 @@ def main():
             else:
                 print("Repository not found")
 
+
         elif choice == "3":
+
+            sorted_repositories = analyze_user()
+
+
+        elif choice == "4":
 
             print("\nExiting Reflog...")
             break
+
 
         else:
 
